@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>{% if page.title %} {{ page.title }} | {% endif %} {{ site.name }}</title>
+        <meta name="description" content="{{site.description}}"/>
+        <meta name="author" content="{{site.author}}"/>
+        <link rel="stylesheet" href="/style.css">
+        {% include jquery.html %}
+        {% include foundation.html %}
+        <!--[if IE 7]><link rel="stylesheet" href="{{site.baseurl}}/resources/fontello/css/fontello-ie7.css"><![endif]-->
+    </head>
+
+    <body>
+        <header>
+            <h1><a href="{{site.baseurl}}/">Welcome to {{ site.name }}</a></h1>
+                <h4>{{ site.description }}</h4>
+            <hr />
+        </header>
+
+        <main>
+            <div class="show-for-large-up vs-top-side-nav large-3 columns">
+                
+                <ul class="side-nav">
+                    <li><i class="icon-home"></i>   <a href="{{site.baseurl}}/">Home</a></li>
+                    <li><i class="icon-mail"></i>   <a href="{{site.baseurl}}/contact">Contact</a></li>
+                    <li><i class="icon-th"></i>     <a href="{{site.baseurl}}/archive">Archive</a></li>
+                </ul>
+            </div>
+            <div class="large-9 medium-12 columns">
+                {{ content }}
+            </div> 
+
+        </main>
+
+        <footer>
+            <hr />
+            <p>&copy; <time>2012</time> {{ site.author }}</p>
+        </footer>
+
+    </body>
+
+</html>
