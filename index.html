@@ -7,14 +7,15 @@ title: Home
 {% for post in site.posts limit: 5  %}
 	<article>
 
-        <header>
-            <h2><a href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a></h2>
-            <span class="date"><i class="icon-clock"></i><time datetime="{{post.date|date:"%F"}}">{{post.date|date:"%b %d, %Y"}}</time></span><br/>
-            <span class="category"><i class="icon-tag"></i> {{ post.categories | category_links }}</span><br/>
+        <h2><a href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a></h2>
+		<div class="vs-excerpt">{{ post.excerpt }}</div>
+        <div class="vs-post-info">
             <span class="author"><i class="icon-user"></i> {% if post.author %}{{post.author}}{% else %}{{site.author}}{% endif%}</span>
-        </header>
+            <span class="date"><i class="icon-clock"></i><time datetime="{{post.date|date:"%F"}}">{{post.date|date:"%b %d, %Y"}}</time></span>
+            <span class="category"><i class="icon-tag"></i> {{ post.categories | category_links }}</span>
+        </div>
 	
-		<div class="entry">{{ post.excerpt }}</div>
+
 
 	</article>
 {% endfor %}
