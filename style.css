@@ -2,8 +2,8 @@ main {
     font-size: 12px;
     font-family: Verdana, Arial, SunSans-Regular, Sans-Serif;
     color:#564b47;  
-    padding-left: auto;
-    padding-right: auto;
-    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
 }
 
