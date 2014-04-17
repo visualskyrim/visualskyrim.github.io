@@ -1,7 +1,18 @@
 <div>
     <style type="text/css">
+        .vs-color-showcase {
+            margin-top: 100px;
+            width: 300px;
+            height: 300px;
+        }
+        .vs-color-showcase>div {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            display: none;
+        }
         .vs-slider-showcase {
-            top: 50px;
+            margin-top: 50px;
             width: 300px;
             height: 50px;
         }
@@ -29,6 +40,9 @@
         }
 
     </style>
+    <div class="vs-color-showcase">
+        <div></div>
+    </div>
     <div class="vs-slider-showcase">
         <button class="vs-btn-slider vs-btn-left">
             <
@@ -73,6 +87,17 @@
                 }, 300, function () {
 
                 });
+            });
+            $('.vs-slider-item').click(function(){
+                var selectedColor = $(this).css('background-color');
+                $('.vs-color-showcase>div').fadeOut(500, function () {
+                    $('.vs-color-showcase>div:first').remove();
+                });
+
+                $('.vs-color-showcase').append(
+                    $('<div>').css('background-color', selectedColor).fadeIn(500));
+
+
             });
         </script>
     </div>
