@@ -1,0 +1,77 @@
+<div>
+    <style type="text/css">
+        .vs-slider-showcase {
+            width: 300px;
+            height: 50px;
+        }
+        .vs-slider-showcase>.vs-btn-slider {
+            max-width: 50px;
+            height: 100%;
+            float: left;
+        }
+        .vs-slider-showcase>.vs-slider-container{
+            float: left;
+            width: 200px;
+            background-color: #91AD70;
+            overflow: hidden;
+        }
+        .vs-slider-showcase>.vs-slider-container>.vs-slider-rail {
+            left: 0px;
+            overflow: hidden;
+            width: 1000px;
+        }
+        .vs-slider-showcase>.vs-slider-container>.vs-slider-rail>.vs-slider-item {
+            float: left;
+            width: 50px;
+            height: 50px;
+        }
+
+    </style>
+    <div class="vs-slider-showcase">
+        <button class="vs-btn-slider vs-btn-left">
+            <
+        </button> 
+        <div class="vs-slider-container">
+            <div class="vs-slider-rail">
+                <div class="vs-slider-item" style="background-color: #216FD3"></div>
+                <div class="vs-slider-item" style="background-color: #7621D3"></div>
+                <div class="vs-slider-item" style="background-color: #21D361"></div>
+                <div class="vs-slider-item" style="background-color: #D36121"></div>
+                <div class="vs-slider-item" style="background-color: #21D328"></div>
+                <div class="vs-slider-item" style="background-color: #D32161"></div>
+                <div class="vs-slider-item" style="background-color: #C521D3"></div>
+                <div class="vs-slider-item" style="background-color: #21D3B7"></div>                
+            </div>
+        </div>
+        <button class="vs-btn-slider vs-btn-right">
+            >
+        </button>
+        <script src="jquery-2.1.0.min.js"></script>
+        <script type="text/javascript">
+            var sliderLeft = 0;
+            var sliderUnit = 50;
+            $('.vs-btn-slider.vs-btn-right').click(function () {
+                if (-sliderLeft >= $('.vs-slider-rail>.vs-slider-item').length * sliderUnit - $('.vs-slider-container').width()){
+                    return;
+                }
+                sliderLeft -= sliderUnit;
+                $('.vs-slider-rail').animate({
+                    'margin-left': sliderLeft
+                }, 300, function () {
+
+                });
+            });
+            $('.vs-btn-slider.vs-btn-left').click(function () {
+                if (sliderLeft >= 0){
+                    return;
+                }
+                sliderLeft += sliderUnit;
+                $('.vs-slider-rail').animate({
+                    'margin-left': sliderLeft
+                }, 300, function () {
+
+                });
+            });
+        </script>
+    </div>
+</div>
