@@ -1,3 +1,13 @@
+---
+layout: post
+title: The right way to get start with git flow
+category: dev log
+author: Chris Kong
+
+excerpt: do not just google it... 
+
+---
+
 # The right way to get start with git flow
 
 ### The cheatsheet
