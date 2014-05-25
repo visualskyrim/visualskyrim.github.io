@@ -8,6 +8,7 @@ excerpt: do not just google it...
 
 ---
 
+# The right way to get start with git flow
 
 ### The cheatsheet
 

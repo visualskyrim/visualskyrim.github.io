@@ -1,0 +1,12 @@
+---
+layout: post
+title: Slider
+category: dev log
+author: Chris Kong
+
+excerpt: All about sliders 
+
+---
+
+
+{% include slider/slider01.html %}
