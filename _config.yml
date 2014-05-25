@@ -1,12 +1,12 @@
-name: Your New Jekyll Site
-description: Blogging about stuffs
-meta_description: "Your New Jekyll Site, Blogging about stuffs"
+name: VisualSkyrim
+description: Blogging about code and fun
+meta_description: "VisualSkyrim, Blogging about codes and fun"
 
 markdown: redcarpet
 pygments: true
-logo: false
+logo: true
 paginate: 15
 
 # Details for the RSS feed generator
-url:            'blog url'
-author:         'Your Name'
+url:            'VisualSkyrim.github.io'
+author:         'Chris Kong'
