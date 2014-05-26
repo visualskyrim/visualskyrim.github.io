@@ -36,7 +36,7 @@ One more thing that could be confusing even to those who have fooled around git 
 
 So, if you just did a pull, you need an extra step to track the origin by
 
-{% highlight bash %}
+{% highlight git %}
 git branch -u origin/feature
 {% endhighlight %}
 
@@ -47,7 +47,7 @@ This site [http://yakiloo.com/getting-started-git-flow](http://yakiloo.com/getti
 To make a quick brief of how to use git flow to develop, this work flow below could do you some help.
 (This scenario suggusts you are in charge of this project. It is helpful to have this POV since you could get the whole picture of how this works.)
 
-{% highlight bash %}
+{% highlight git %}
 // for some reason, someone got a crazy idea
 git flow init 
 
