@@ -4,12 +4,11 @@ title: The right way to get start with git flow
 category: dev log
 author: Chris Kong
 
-excerpt: do not just google it... 
+excerpt: Do not just google it... 
 
 ---
 
 
-# The cheatsheet
 
 You might start with git flow by checking the cheating sheet([http://danielkummer.github.io/git-flow-cheatsheet/index.html](http://danielkummer.github.io/git-flow-cheatsheet/index.html "git flow")) just like me.
 
@@ -39,7 +38,6 @@ So, if you just did a pull, you need an extra step to track the origin by
 
     git branch -u origin/feature
 
-# The Getting Started
 
 Ok, we already know that this cheating sheet is not such a good idea. So where should we get started?
 
