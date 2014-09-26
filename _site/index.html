@@ -1,106 +1,321 @@
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <meta charset="utf-8"/>
-        <title> Home |  VisualSkyrim</title>
-        <meta name="description" content="A serial of short stories about codes."/>
-        <meta name="author" content="Chris Kong"/>
-        <link rel="stylesheet" href="/style.css">
-                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-                <link rel="stylesheet" href="/src/css/foundation.min.css">
-        <link rel="stylesheet" href="/src/css/normalize.css">
-        <script src="/src/js/foundation.min.js"></script>
-
-        <!--[if IE 7]><link rel="stylesheet" href="/resources/fontello/css/fontello-ie7.css"><![endif]-->
-    </head>
-
-    <body>
-        <header>
-            <h1><a href="/">Welcome to VisualSkyrim</a></h1>
-                <h4>A serial of short stories about codes.</h4>
-            <hr />
-        </header>
-
-        <main>
-            <div class="show-for-large-up vs-top-side-nav large-3 columns">
-                
-                <ul class="side-nav">
-                    <li><i class="icon-home"></i>   <a href="/">Home</a></li>
-                    <li><i class="icon-mail"></i>   <a href="/contact">Contact</a></li>
-                    <li><i class="icon-th"></i>     <a href="/archive">Archive</a></li>
-                </ul>
-            </div>
-            <div class="large-9 medium-12 columns">
-                <!-- Show last 5 posts here -->
-
-	<article>
-
-        <h2><a href="/meta/2012/03/15/guest-blogs/">Guest Posts</a></h2>
-		<div class="vs-excerpt">How to quickly create guest blogs with a different author.</div>
-        <div class="vs-post-info">
-            <span class="author"><i class="icon-user"></i> John Smith</span>
-            <span class="date"><i class="icon-clock"></i><time datetime="2012-03-15">Mar 15, 2012</time></span>
-            <span class="category"><i class="icon-tag"></i> <a href="/meta/">meta</a></span>
-        </div>
-	
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Latest Posts &#8211; Visual Skyrim</title>
+<meta name="description" content="Describe this nonsense.">
+<meta name="keywords" content="Jekyll, theme, themes, responsive, blog, modern">
 
 
-	</article>
 
-	<article>
-
-        <h2><a href="/design/2012/02/10/code-snippets/">Code Snippets</a></h2>
-		<div class="vs-excerpt">Quick overview on how to post code snippets using Liquid tags and how to escape or not escape markdown and HTML in your blog entries.</div>
-        <div class="vs-post-info">
-            <span class="author"><i class="icon-user"></i> Chris Kong</span>
-            <span class="date"><i class="icon-clock"></i><time datetime="2012-02-10">Feb 10, 2012</time></span>
-            <span class="category"><i class="icon-tag"></i> <a href="/design/">design</a></span>
-        </div>
-	
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Latest Posts">
+<meta property="og:description" content="Describe this nonsense.">
+<meta property="og:url" content="http://localhost:4000/index.html">
+<meta property="og:site_name" content="Visual Skyrim">
 
 
-	</article>
-
-	<article>
-
-        <h2><a href="/design/2012/01/19/using-web-icons/">Using the Web Icons</a></h2>
-		<div class="vs-excerpt">Quick overview on how to use the Typicon web font icons included with this template.</div>
-        <div class="vs-post-info">
-            <span class="author"><i class="icon-user"></i> Chris Kong</span>
-            <span class="date"><i class="icon-clock"></i><time datetime="2012-01-19">Jan 19, 2012</time></span>
-            <span class="category"><i class="icon-tag"></i> <a href="/design/">design</a></span>
-        </div>
-	
 
 
-	</article>
 
-	<article>
+<link rel="canonical" href="http://localhost:4000/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Visual Skyrim Feed">
+<link rel="author" href="https://google.com/+yourid?rel=author">
 
-        <h2><a href="/meta/2012/01/18/hello-world/">Hello World!</a></h2>
-		<div class="vs-excerpt">Hello World! Vestibulum imperdiet adipiscing arcu, quis aliquam dolor condimentum dapibus. Aliquam fermentum leo aliquet quam volutpat et molestie mauris mattis. Suspendisse semper consequat velit in suscipit.</div>
-        <div class="vs-post-info">
-            <span class="author"><i class="icon-user"></i> Chris Kong</span>
-            <span class="date"><i class="icon-clock"></i><time datetime="2012-01-18">Jan 18, 2012</time></span>
-            <span class="category"><i class="icon-tag"></i> <a href="/meta/">meta</a></span>
-        </div>
-	
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<!-- Webfonts -->
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
 
 
-	</article>
+
+</head>
+
+<body id="post-index" class="feature">
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="http://localhost:4000">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="http://localhost:4000/images/avatar.jpg" alt="Chris Kong photo" class="author-photo">
+					<h4>Chris Kong</h4>
+					<p>Server engineer, now heading the way to the game craft...</p>
+				</li>
+				<li><a href="http://localhost:4000/about/">Learn More</a></li>
+				<li>
+					<a href="mailto:visual.skyrim@gmail.com"><i class="fa fa-envelope"></i> Email</a>
+				</li>
+				
+				
+				<li>
+					<a href="https://google.com/+yourid"><i class="fa fa-google-plus"></i> Google+</a>
+				</li>
+				
+				
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="http://localhost:4000/posts/">All Posts</a></li>
+				<li><a href="http://localhost:4000/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
 
 
-            </div> 
+<div class="entry-header">
+  <div class="image-credit">Image source: <a href="http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/">dargadgetz</a></div><!-- /.image-credit -->
+  
+    <div class="entry-image">
+      <img src="http://localhost:4000/images/abstract-1.jpg" alt="Latest Posts">
+    </div><!-- /.entry-image -->
+  
+  <div class="header-title">
+    <div class="header-title-wrap">
+      <h1>Visual Skyrim</h1>
+      <h2>Latest Posts</h2>
+    </div><!-- /.header-title-wrap -->
+  </div><!-- /.header-title -->
+</div><!-- /.entry-header -->
 
-        </main>
+<div id="main" role="main">
+  
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2014-09-16T00:00:00+09:00"><a href="http://localhost:4000/Akka%20-%20Logging%20to%20multiple%20files/">September 16, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="http://localhost:4000/about/" title="About Chris Kong">Chris Kong</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://localhost:4000/Akka%20-%20Logging%20to%20multiple%20files/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://localhost:4000/Akka%20-%20Logging%20to%20multiple%20files/" rel="bookmark" title="Akka - Logging to multiple files" itemprop="url">Akka - Logging to multiple files</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    # Akka - Logging to multiple files
 
-        <footer>
-            <hr />
-            <p>&copy; <time>2012</time> Chris Kong</p>
-        </footer>
+Ref:
 
-    </body>
+[1] - [Defining 1 logback file per level](http://stackoverflow.com/a/9344385/1105455)
+[2] - [logback - manual](http://logback.qos.ch/manual/filters.html#levelFilter)
+[3] - [Akka - Log into files](http://qiita.com/visualskyrim/items/8aa73b1136180660234e)
 
+In my last memo about how to use logback in Akka to log into file system, I showed the way to config `logback.xml`.
+
+However, recently I find it killing me when I use this log file for bug-shooting, because all the log, including *debug*, *info*, *warning*, *error* are all in one file. And what I am really looking for is *error*, which is really rare in the log file.
+
+So, it seems reasonable to place logs of different level into different files. In my case, which would also cover most cases, I will place all the *info* log line into **info.log**, and all the *error* log and above to the **error.log**.
+
+Since we are place log into different files, we are going to use multiple appenders.
+
+#### To put info log one file
+
+```xml:logback.xml
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>log/info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- Daily rollover with compression -->
+            <fileNamePattern>process-log-%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <!-- keep 30 days worth of history -->
+            <maxHistory>90</maxHistory>
+        </rollingPolicy>
+        <append>true</append>
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%d,%msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+```
+ 
+The key point is in the ***filter*** element. This filter uses [LevelFilter](http://logback.qos.ch/manual/filters.html#levelFilter) to decide which level of log should be logged.
+
+
+#### To put error and all levels above to another file
+
+```xml:logback.xml
+  <appender name="ERROR_FILE" class = "ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>
+            log/error.log
+        </file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover with compression -->
+            <fileNamePattern>error-log-%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <!-- keep 1 week worth of history -->
+            <maxHistory>100</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss ZZZZ} %message%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+```
+
+In this example, we use [ThresholdFilter](http://logback.qos.ch/manual/filters.html#thresholdFilter) to select all the levels above the *error* to log file.
+
+#### Then, put two appenders together
+
+This is the tricky part. We ganna use two ***root logger*** in the same *logback.xml*.
+
+```xml:logback.xml
+
+<configuration>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>log/process.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- Daily rollover with compression -->
+            <fileNamePattern>process-log-%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <!-- keep 30 days worth of history -->
+            <maxHistory>90</maxHistory>
+        </rollingPolicy>
+        <append>true</append>
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%d,%msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="ERROR_FILE" class = "ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>
+            log/error.log
+        </file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover with compression -->
+            <fileNamePattern>error-log-%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <!-- keep 1 week worth of history -->
+            <maxHistory>100</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss ZZZZ} %message%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+
+    <root level="ERROR">
+        <appender-ref ref="ERROR_FILE" />
+    </root>
+    <root level="INFO">
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
+```
+
+***
+
+#### Finally
+
+Now, in your SomeActor.scala:
+
+```scala:SomeActor.scala
+
+class SomeActor extends Actor with ActorLogging {
+
+  implicit val ec = context.dispatcher
+
+  def receive = {
+    case x: SomeMsg =>
+      log.info("will be logged into info.log")
+      log.error("will be logged into error.log")
+  }
+}
+```
+
+Hope this will help you.
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+
+<div class="pagination">
+  
+    Previous
+  
+  <ul class="inline-list">
+    <li>
+      
+        <span class="current-page">1</span>
+      
+    </li>
+    
+  </ul>
+  
+    Next
+  
+</div><!-- /.pagination -->
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2014 Chris Kong. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+          
+
+</body>
 </html>
