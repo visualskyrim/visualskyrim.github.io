@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 main {
     font-size: 12px;
     font-family: Verdana, Arial, SunSans-Regular, Sans-Serif;
@@ -46,6 +47,55 @@ article>div.vs-post-info {
 article>div.vs-post-info a {
     color: #b3b3b1;
 }
+=======
+main {
+    font-size: 12px;
+    font-family: Verdana, Arial, SunSans-Regular, Sans-Serif;
+    color:#564b47;  
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
+}
+
+footer {
+
+}
+
+article {
+    margin-bottom: 50px;
+}
+
+article>h2>a {
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    font-style: normal;
+    display: block;
+    font-size: 28px;
+    line-height: 1.1;
+    color: #333332;
+    margin-bottom: 4px;
+    font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+}
+
+article>div.vs-excerpt {
+    font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #666665;
+}
+
+article>div.vs-post-info {
+    font-size: 14px;
+    color: #b3b3b1;
+}
+
+article>div.vs-post-info a {
+    color: #b3b3b1;
+}
+>>>>>>> parent of e8d39db... apply theme hpstr-jekyll-theme
 =======
 main {
     font-size: 12px;
