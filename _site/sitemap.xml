@@ -1,46 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>http://localhost:4000</loc>
-    </url>
-    
-    
-    <url>
-        <loc>http://localhost:4000/404.html</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/about/</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/feed.xml</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/index.html</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/posts/</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/sitemap.xml</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/tags/</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/theme-setup/</loc>
-    </url>
-    
-
-    
-    <url>
-        <loc>http://localhost:4000/Akka%20-%20Logging%20to%20multiple%20files/</loc>
-    </url>
-    
+  <url>
+      <loc>http://visualskyrim.github.io/meta/2012/03/15/guest-blogs/</loc>
+      <lastmod>2012-03-15</lastmod>
+      <changefreq>never</changefreq>
+  </url>
+  <url>
+      <loc>http://visualskyrim.github.io/design/2012/02/10/code-snippets/</loc>
+      <lastmod>2012-02-10</lastmod>
+      <changefreq>never</changefreq>
+  </url>
+  <url>
+      <loc>http://visualskyrim.github.io/design/2012/01/19/using-web-icons/</loc>
+      <lastmod>2012-01-19</lastmod>
+      <changefreq>never</changefreq>
+  </url>
+  <url>
+      <loc>http://visualskyrim.github.io/meta/2012/01/18/hello-world/</loc>
+      <lastmod>2012-01-18</lastmod>
+      <changefreq>never</changefreq>
+  </url>
 </urlset>

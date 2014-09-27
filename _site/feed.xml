@@ -1,176 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-<title type="text">Visual Skyrim</title>
-<generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
-<link rel="alternate" type="text/html" href="http://localhost:4000" />
-<updated>2014-09-26T11:11:08+09:00</updated>
-<id>http://localhost:4000/</id>
-<author>
-  <name>Chris Kong</name>
-  <uri>http://localhost:4000/</uri>
-  <email>visual.skyrim@gmail.com</email>
-</author>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+	<channel>
+		<title>VisualSkyrim</title>
+		<description>A serial of short stories about codes.</description>
+		<link>http://visualskyrim.github.io</link>
+		
+			<item>
+				<title>Guest Posts</title>
+				<description>&lt;p&gt;If you want to create a guest post that will appear as if written by another author, simply add an &lt;code&gt;author&lt;/code&gt; attribute to the
+YAML header of your blog post. This will be picked up in the template and displayed in the meta-section both on the front page
+as well as on the individual post pages.&lt;/p&gt;
+</description>
+				<published>2012-03-15 00:00:00 +0900</published>
+				<link>http://visualskyrim.github.io/meta/2012/03/15/guest-blogs/</link>
+			</item>
+		
+			<item>
+				<title>Code Snippets</title>
+				<description>&lt;p&gt;Whenever you need to post a code snippet, use the liquid tags &lt;code&gt;hilight&lt;/code&gt; and &lt;code&gt;endhilight&lt;/code&gt; like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# some code goes here&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-<entry>
-  <title type="html"><![CDATA[Akka - Logging to multiple files]]></title>
- <link rel="alternate" type="text/html" href="http://localhost:4000/Akka%20-%20Logging%20to%20multiple%20files/" />
-  <id>http://localhost:4000/Akka - Logging to multiple files</id>
-  <updated>2013-09-16T00:00:00-00:00</updated>
-  <published>2014-09-16T00:00:00+09:00</published>
-  
-  <author>
-    <name>Chris Kong</name>
-    <uri>http://localhost:4000</uri>
-    <email>visual.skyrim@gmail.com</email>
-  </author>
-  <content type="html"># Akka - Logging to multiple files
+&lt;p&gt;Note that this only provides color-coding. For that you might need to use a front end colorization engine like Highlight.JS or something similar.&lt;/p&gt;
+</description>
+				<published>2012-02-10 00:00:00 +0900</published>
+				<link>http://visualskyrim.github.io/design/2012/02/10/code-snippets/</link>
+			</item>
+		
+			<item>
+				<title>Using the Web Icons</title>
+				<description>&lt;p&gt;This template uses &lt;a href=&quot;http://typicons.com/&quot;&gt;Typicons&lt;/a&gt; web font, provided by &lt;a href=&quot;http://fontello.com/&quot;&gt;Fontello&lt;/a&gt; font bundling service. It allows you to quickly
+add nice icons into your pages by using css tags.&lt;/p&gt;
 
-Ref:
+&lt;p&gt;To add an icon somewhere in the template simply do:&lt;/p&gt;
 
-[1] - [Defining 1 logback file per level](http://stackoverflow.com/a/9344385/1105455)
-[2] - [logback - manual](http://logback.qos.ch/manual/filters.html#levelFilter)
-[3] - [Akka - Log into files](http://qiita.com/visualskyrim/items/8aa73b1136180660234e)
-
-In my last memo about how to use logback in Akka to log into file system, I showed the way to config `logback.xml`.
-
-However, recently I find it killing me when I use this log file for bug-shooting, because all the log, including *debug*, *info*, *warning*, *error* are all in one file. And what I am really looking for is *error*, which is really rare in the log file.
-
-So, it seems reasonable to place logs of different level into different files. In my case, which would also cover most cases, I will place all the *info* log line into **info.log**, and all the *error* log and above to the **error.log**.
-
-Since we are place log into different files, we are going to use multiple appenders.
-
-#### To put info log one file
-
-```xml:logback.xml
-  &lt;appender name=&quot;FILE&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;
-        &lt;file&gt;log/info.log&lt;/file&gt;
-        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;
-            &lt;!-- Daily rollover with compression --&gt;
-            &lt;fileNamePattern&gt;process-log-%d{yyyy-MM-dd}.gz&lt;/fileNamePattern&gt;
-            &lt;!-- keep 30 days worth of history --&gt;
-            &lt;maxHistory&gt;90&lt;/maxHistory&gt;
-        &lt;/rollingPolicy&gt;
-        &lt;append&gt;true&lt;/append&gt;
-        &lt;!-- encoders are assigned the type
-             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default --&gt;
-        &lt;encoder&gt;
-            &lt;pattern&gt;%d,%msg%n&lt;/pattern&gt;
-        &lt;/encoder&gt;
-        &lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;
-            &lt;level&gt;INFO&lt;/level&gt;
-            &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;
-            &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;
-        &lt;/filter&gt;
-    &lt;/appender&gt;
-```
- 
-The key point is in the ***filter*** element. This filter uses [LevelFilter](http://logback.qos.ch/manual/filters.html#levelFilter) to decide which level of log should be logged.
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;icon-home&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-#### To put error and all levels above to another file
+&lt;p&gt;This will insert a home icon, just as the one seen in the sidebar. The available class names you can use are as follows:&lt;/p&gt;
 
-```xml:logback.xml
-  &lt;appender name=&quot;ERROR_FILE&quot; class = &quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;
-        &lt;file&gt;
-            log/error.log
-        &lt;/file&gt;
-        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;
-            &lt;!-- daily rollover with compression --&gt;
-            &lt;fileNamePattern&gt;error-log-%d{yyyy-MM-dd}.gz&lt;/fileNamePattern&gt;
-            &lt;!-- keep 1 week worth of history --&gt;
-            &lt;maxHistory&gt;100&lt;/maxHistory&gt;
-        &lt;/rollingPolicy&gt;
-        &lt;encoder&gt;
-            &lt;pattern&gt;%date{yyyy-MM-dd HH:mm:ss ZZZZ} %message%n&lt;/pattern&gt;
-        &lt;/encoder&gt;
-        &lt;filter class=&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;&gt;
-            &lt;level&gt;ERROR&lt;/level&gt;
-        &lt;/filter&gt;
-    &lt;/appender&gt;
-```
+&lt;p&gt;&lt;img src=&quot;/resources/img/icons.png&quot; title=&quot;Available Icons&quot; alt=&quot;Available Icons&quot; /&gt;&lt;/p&gt;
 
-In this example, we use [ThresholdFilter](http://logback.qos.ch/manual/filters.html#thresholdFilter) to select all the levels above the *error* to log file.
+&lt;p&gt;These should work in all the browsers, all the way down to and including IE7, but not IE6.&lt;/p&gt;
+</description>
+				<published>2012-01-19 00:00:00 +0900</published>
+				<link>http://visualskyrim.github.io/design/2012/01/19/using-web-icons/</link>
+			</item>
+		
+			<item>
+				<title>Hello World!</title>
+				<description>&lt;p&gt;Hello World!&lt;/p&gt;
 
-#### Then, put two appenders together
+&lt;p&gt;This is just a sample post.&lt;/p&gt;
 
-This is the tricky part. We ganna use two ***root logger*** in the same *logback.xml*.
+&lt;p&gt;Vestibulum imperdiet adipiscing arcu, quis aliquam dolor condimentum dapibus. Aliquam fermentum leo aliquet quam volutpat et molestie mauris mattis. Suspendisse semper consequat velit in suscipit. Praesent blandit, mi id facilisis adipiscing, tortor tellus mollis quam, sed dignissim sapien diam ac lectus. Nunc eget ornare quam. Vivamus sit amet tortor dolor, non egestas ligula. Mauris nisi risus, semper nec blandit id, suscipit eget dolor. Sed placerat odio at erat porttitor varius. Phasellus ornare vestibulum dolor ac rhoncus. Mauris laoreet varius est eu rhoncus. Curabitur facilisis mauris eu purus pharetra vitae tincidunt nulla gravida. Duis sagittis, felis a luctus mattis, metus sem tempus velit, sit amet blandit tellus nisi id augue.&lt;/p&gt;
 
-```xml:logback.xml
-
-&lt;configuration&gt;
-    &lt;appender name=&quot;FILE&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;
-        &lt;file&gt;log/process.log&lt;/file&gt;
-        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;
-            &lt;!-- Daily rollover with compression --&gt;
-            &lt;fileNamePattern&gt;process-log-%d{yyyy-MM-dd}.gz&lt;/fileNamePattern&gt;
-            &lt;!-- keep 30 days worth of history --&gt;
-            &lt;maxHistory&gt;90&lt;/maxHistory&gt;
-        &lt;/rollingPolicy&gt;
-        &lt;append&gt;true&lt;/append&gt;
-        &lt;!-- encoders are assigned the type
-             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default --&gt;
-        &lt;encoder&gt;
-            &lt;pattern&gt;%d,%msg%n&lt;/pattern&gt;
-        &lt;/encoder&gt;
-        &lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;
-            &lt;level&gt;INFO&lt;/level&gt;
-            &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;
-            &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;
-        &lt;/filter&gt;
-    &lt;/appender&gt;
-
-    &lt;appender name=&quot;ERROR_FILE&quot; class = &quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;
-        &lt;file&gt;
-            log/error.log
-        &lt;/file&gt;
-        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;
-            &lt;!-- daily rollover with compression --&gt;
-            &lt;fileNamePattern&gt;error-log-%d{yyyy-MM-dd}.gz&lt;/fileNamePattern&gt;
-            &lt;!-- keep 1 week worth of history --&gt;
-            &lt;maxHistory&gt;100&lt;/maxHistory&gt;
-        &lt;/rollingPolicy&gt;
-        &lt;encoder&gt;
-            &lt;pattern&gt;%date{yyyy-MM-dd HH:mm:ss ZZZZ} %message%n&lt;/pattern&gt;
-        &lt;/encoder&gt;
-        &lt;filter class=&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;&gt;
-            &lt;level&gt;ERROR&lt;/level&gt;
-        &lt;/filter&gt;
-    &lt;/appender&gt;
-
-    &lt;root level=&quot;ERROR&quot;&gt;
-        &lt;appender-ref ref=&quot;ERROR_FILE&quot; /&gt;
-    &lt;/root&gt;
-    &lt;root level=&quot;INFO&quot;&gt;
-        &lt;appender-ref ref=&quot;FILE&quot; /&gt;
-    &lt;/root&gt;
-&lt;/configuration&gt;
-```
-
-***
-
-#### Finally
-
-Now, in your SomeActor.scala:
-
-```scala:SomeActor.scala
-
-class SomeActor extends Actor with ActorLogging {
-
-  implicit val ec = context.dispatcher
-
-  def receive = {
-    case x: SomeMsg =&gt;
-      log.info(&quot;will be logged into info.log&quot;)
-      log.error(&quot;will be logged into error.log&quot;)
-  }
-}
-```
-
-Hope this will help you.
-
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/Akka%20-%20Logging%20to%20multiple%20files/&quot;&gt;Akka - Logging to multiple files&lt;/a&gt; was originally published by Chris Kong at &lt;a href=&quot;http://localhost:4000&quot;&gt;Visual Skyrim&lt;/a&gt; on September 16, 2014.&lt;/p&gt;</content>
-</entry>
-
-</feed>
+&lt;p&gt;Proin feugiat libero ac lorem mollis fermentum. Cras et lacus sodales nisl facilisis ornare. Sed dolor eros, pulvinar ac varius non, bibendum eget odio. Nulla facilisi. Pellentesque et nisi a tellus ullamcorper faucibus. Nullam sagittis tempor mi non mattis. Proin ultricies, enim sit amet bibendum tristique, ligula ante feugiat nunc, sit amet imperdiet tortor nisl et felis. Pellentesque et nisl dui, non dictum libero. Vivamus tempor ante ac leo suscipit a sodales ligula iaculis. Curabitur massa mi, semper sed bibendum eget, auctor in nulla. Quisque at mi in ligula viverra suscipit sed vitae leo.&lt;/p&gt;
+</description>
+				<published>2012-01-18 00:00:00 +0900</published>
+				<link>http://visualskyrim.github.io/meta/2012/01/18/hello-world/</link>
+			</item>
+		
+	</channel>
+</rss>

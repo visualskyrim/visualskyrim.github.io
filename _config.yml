@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 title:            Visual Skyrim
 description:      Daily life of coding, gaming,and fun of both
 disqus_shortname: visualskyrim
@@ -71,3 +72,17 @@ kramdown:
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
+=======
+name: VisualSkyrim
+description: Blogging about code and fun
+meta_description: "VisualSkyrim, Blogging about codes and fun"
+
+markdown: redcarpet
+pygments: true
+logo: true
+paginate: 15
+
+# Details for the RSS feed generator
+url:            'VisualSkyrim.github.io'
+author:         'Chris Kong'
+>>>>>>> parent of e8d39db... apply theme hpstr-jekyll-theme
