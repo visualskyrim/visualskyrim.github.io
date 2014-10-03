@@ -23,6 +23,7 @@ Ref:
 
 Using config file absolutely make your life easier to deploy, debug, and test your applications.
 Sometimes people want to use different config file to run dev or run prod, Sometimes people just want to use different config to test.
+
 So, I'm going to show how to use multiple config files in *sbt project*.
 In this post, I create minimal project by using [typesafe's activator](https://typesafe.com/activator), and I strongly command this tool to create small and clean project with least dependency to train skills.
 
@@ -30,7 +31,7 @@ In this post, I create minimal project by using [typesafe's activator](https://t
 
 Firstly, create simple sbt Scala project. I created it by using *activator*:
 
-{% highlight shell %}
+{% highlight PowerShell %}
 ./activator new
 {% endhighlight %}
 
@@ -71,11 +72,11 @@ It's time to add your own config file.
 Add `application.config` under your `src/main/resources`, and write some random configs into it.
 Here is mine:
 
-`
+{% highlight PowerShell %}
 test.text1="1"
 test.text2="2"
 test.text3="3"
-`
+{% endhighlight %}
 
 To check whether this config file could be properly loaded, write a simple program to check it out:
 
@@ -97,12 +98,12 @@ object Hello {
 
 When run this script, it will give:
 
-`
+{% highlight PowerShell %}
 Hello, config!
 1
 2
 3
-`
+{% endhighlight %}
 
 # Use config in your test
 
@@ -118,7 +119,6 @@ To check that, add new test case under `src/test/scala` in your project:
 {% highlight scala %}
 import com.typesafe.config.ConfigFactory
 import org.scalatest._
-
 
 class HelloSpec extends FlatSpec with Matchers {
   "Hello" should "have tests" in {
@@ -136,17 +136,17 @@ class HelloSpec extends FlatSpec with Matchers {
 
 Then add config file for the test as `src/test/resources/application.conf`.
 
-`
+{% highlight PowerShell %}
 test.text2="22"
-`
+{% endhighlight %}
 
 When you run `sbt test` you will get this as expected:
 
-`
+{% highlight PowerShell %}
 1
 22
 3
-`
+{% endhighlight %}
 
 # Use specific config file
 
@@ -155,7 +155,7 @@ Normally, you can specify the config file by use sbt parameter `-Dconfig.file` o
 But in team work, you probably want this to be static, and use the file you have specified whenever and whoever run `sbt test`.
 In that case, you need to put a extra in your `build.sbt`:
 
-{% highlight scala %}
+{% highlight Scala %}
 fork in Test := true // allow to apply extra setting to Test
 
 javaOptions in Test += "-Dconfig.resource=test.conf" // apply extra setting here
@@ -163,31 +163,29 @@ javaOptions in Test += "-Dconfig.resource=test.conf" // apply extra setting here
 
 And then, put your test.conf to the `src/test/resources/test.conf`:
 
-`
+{% highlight Scala %}
 include "application.conf"
 
 test.text3="333"
-`
+{% endhighlight %}
 
 > Note that in this time you will have to use `include "application.conf"`.
 
 And this time when you run `sbt test`, you will get:
 
-`
+{% highlight PowerShell %}
 1
 22
 333
-`
+{% endhighlight %}
 
 That is because the sequence of config files overwrite each others is: 
 
-`
-src/test/resources/test.conf // the file you specified
-
+{% highlight PowerShell %}
+src/test/resources/test.conf
 src/test/resources/application.conf
-
 src/main/resources/application.conf
-`
+{% endhighlight %}
 
 ***Note*** that no matter you like or not, once you include the "application.conf",
 the sbt will first try to find `src/test/resources/application.conf`.
@@ -197,8 +195,8 @@ Even if you delete the `src/test/resources/application.conf`, the `src/main/reso
 
 Here is the result if there is no `src/test/resources/application.conf` in the project:
 
-`
+{% highlight PowerShell %}
 1
 2
 333
-`
+{% endhighlight %}
