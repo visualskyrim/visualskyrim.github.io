@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ebean - Solve OptimisticLockException when update item using Ebean
-description: "Belt up guys, shit is going to be real."
+description: "Or maybe use transaction"
 modified: 2014-10-05
 tags: [Ebean]
 image:
