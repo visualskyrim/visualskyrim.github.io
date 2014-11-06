@@ -3,7 +3,7 @@ layout: post
 title: Scala - Use Multiple Configs in Sbt Project
 description: "To make your developing, testing, and deploying easier."
 modified: 2014-10-03
-tags: [Scala]
+tags: [scala]
 image:
   feature: abstract-4.jpg
   credit: dargadgetz
