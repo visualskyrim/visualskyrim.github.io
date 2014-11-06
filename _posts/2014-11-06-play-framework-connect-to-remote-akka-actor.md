@@ -3,7 +3,7 @@ layout: post
 title: Play Framework - Connect to Remote Akka Actor
 description: "Make your API more powerful"
 modified: 2014-10-05
-tags: [Ebean]
+tags: [play framework,akka,java,scala]
 image:
   feature: abstract-3.jpg
   credit: dargadgetz
