@@ -18,7 +18,6 @@ share: true
 ![UserService_scala_-__badboy-api__-_badboy-api_-____Documents_projects_badboy-api_.png](https://qiita-image-store.s3.amazonaws.com/0/39824/109076a7-1c37-5c0c-0ee9-c40d034c86ef.png)
 
 <figure>
-  <a href="https://qiita-image-store.s3.amazonaws.com/0/39824/109076a7-1c37-5c0c-0ee9-c40d034c86ef.png"><img src="https://qiita-image-store.s3.amazonaws.com/0/39824/109076a7-1c37-5c0c-0ee9-c40d034c86ef.png" alt=""></a>
   <figcaption><a href="https://qiita-image-store.s3.amazonaws.com/0/39824/109076a7-1c37-5c0c-0ee9-c40d034c86ef.png" title="My Spray project structure">My Spray project structure</a>.</figcaption>
 </figure>
 
