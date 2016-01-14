@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Make sync call to web socket server from API"
+title: "Make sync call to web socket server from Play Framework"
 description: ""
 modified: 2016-01-14
 tags: WebSocket ServerDeveloping
