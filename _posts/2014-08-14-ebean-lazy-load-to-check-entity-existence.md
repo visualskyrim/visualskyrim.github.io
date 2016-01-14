@@ -23,7 +23,7 @@ In case of that, when you do some query that does not actually need load all dat
 
 In ***Ebean***, you could do:
 
-{% highlight scala %}
+{% highlight java %}
 boolean itemExists
         = (YourModel.find.where().eq("id", id).findRowCount() == 1) ? true : false;
 {% endhighlight %}
