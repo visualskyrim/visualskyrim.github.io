@@ -3,7 +3,7 @@ layout: post
 title: "Ebean - Lazy load to check entity's existence"
 description: "Without actually fetch the data."
 modified: 2016-01-14
-tags: WebSocket ServerDeveloping
+tags: Ebean Database
 category: ServerDeveloping
 image:
   feature: abstract-3.jpg
