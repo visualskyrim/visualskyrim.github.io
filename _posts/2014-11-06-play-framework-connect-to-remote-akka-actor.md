@@ -6,8 +6,8 @@ modified: 2014-10-05
 tags: [play framework,akka,java,scala]
 image:
   feature: abstract-3.jpg
-  credit: dargadgetz
-  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
+  credit: Chris Kong
+  creditlink: http://visualskyrim.github.io/
 comments: true
 share: true
 ---
@@ -68,7 +68,7 @@ Almost do the same thing as you did in API in your `src/main/resources/applicati
 
 {% highlight py %}
 yourSystem { # the name your actor system is going to use
-  akka { 
+  akka {
     # other thing is just the same as that in API
     loglevel = "DEBUG"
     loggers = ["akka.event.slf4j.Slf4jLogger"]
@@ -106,7 +106,7 @@ val system = ActorSystem("CoolSystem",config.getConfig("yourSystem")) // you wil
 
 # Program
 
-## API 
+## API
 
 I use Play in Java for this example. For Scala, see [this](https://www.playframework.com/documentation/2.3.x/ScalaAkka).
 
@@ -161,11 +161,11 @@ Now, if the controller ***askYourActorSomething*** is called, it will send a mes
 
 # There is a one more thing
 
-If you are gonna use remote actor in Play application in Production, especially in distributed environment, things are going to be a little bit tough. 
+If you are gonna use remote actor in Play application in Production, especially in distributed environment, things are going to be a little bit tough.
 
 ## Firewall
 
-This will cause it impossible to API and Actor program access to each other. 
+This will cause it impossible to API and Actor program access to each other.
 
 If you are using EC2, this could be solved by setting **security groups**. You must make sure the API and Actor program is in each other's group's inbound.
 

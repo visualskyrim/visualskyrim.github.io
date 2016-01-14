@@ -6,8 +6,8 @@ modified: 2015-02-11
 tags: [python,locust,load test]
 image:
   feature: abstract-3.jpg
-  credit: dargadgetz
-  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
+  credit: Chris Kong
+  creditlink: http://visualskyrim.github.io/
 comments: true
 share: true
 ---
@@ -121,9 +121,8 @@ object Boot extends App with DbSupport with DynamodbSupport {
 
 # Benefits
 
-I believe this arrangement fits most cases. 
+I believe this arrangement fits most cases.
 
 - Most people would like request handler to be separated in several files, grouping the controllers according to the related features. If people want to change anything or add anything, they can easily locate the place.
 - It's clean. There will be no association with the Akka system in the middle of your real logic.
 - You might have noticed that since we use trait to build controllers, we can test our controllers without getting hands dirty with Akka.
-

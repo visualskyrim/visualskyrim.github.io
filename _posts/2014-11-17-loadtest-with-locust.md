@@ -6,8 +6,8 @@ modified: 2014-11-18
 tags: [python,locust,load test]
 image:
   feature: abstract-3.jpg
-  credit: dargadgetz
-  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
+  credit: Chris Kong
+  creditlink: http://visualskyrim.github.io/
 comments: true
 share: true
 ---
@@ -84,7 +84,7 @@ class SimpleTaskSet(TaskSet):
     requestPath = "/services/users/" + self.testingUserId + "/checkSomeThing"
     # requestを送信
     self.client.get(requestPath)
-    
+
   # test case 2
   # @task(2) が指定して、このtest caseの送信頻度を上のtest case 1の二倍になる。
   @task(2)
@@ -97,8 +97,8 @@ class SimpleTaskSet(TaskSet):
 class SimpleLocust(HttpLocust):
   task_set = ReadStateTaskSet　# 上のtest caseをimportします
   # 各ユーザーが前回のrequestを送信した後、何秒を待つかという設定
-  min_wait = int(1) 
-  max_wait = int(2) 
+  min_wait = int(1)
+  max_wait = int(2)
 
 {% endhighlight %}
 
@@ -140,4 +140,3 @@ python -H [you_url_or_ip_of_your_application] -f [path_of_your_simple] --slave -
 >　1.　MasterとSlaveと通信があるので、FirewallやSecurityGroupを設定しないといけない。
 >　2.　重い負荷をテストするとHealthCheckなどのため、同時でたくさんファイルがOpenするから、Ulimitを超えるかも。だから、MasterとSlaveの各サーバーで、Locustを起動する前に`ulimit 4096`をさきに実行します。
 >　3.　Defaultの8089のportを変更したいなら、Masterで`--master-bind-port=5557`のように追加して、Slaveで`--master-port=5557`を追加します。
-

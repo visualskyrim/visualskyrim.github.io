@@ -6,9 +6,9 @@ modified: 2014-09-16
 tags: Akka Logging
 category: ServerDeveloping
 image:
-  feature: abstract-3.jpg
-  credit: dargadgetz
-  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
+  feature: abstract-4.jpg
+  credit: Chris Kong
+  creditlink: http://visualskyrim.github.io/
 comments: true
 share: true
 ---
@@ -56,7 +56,7 @@ Since we are place log into different files, we are going to use multiple append
         </filter>
     </appender>
 {% endhighlight %}
- 
+
 The key point is in the ***filter*** element. This filter uses [LevelFilter](http://logback.qos.ch/manual/filters.html#levelFilter) to decide which level of log should be logged.
 
 

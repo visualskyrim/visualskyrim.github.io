@@ -5,9 +5,9 @@ description: "To make your developing, testing, and deploying easier."
 modified: 2014-10-03
 tags: [scala]
 image:
-  feature: abstract-4.jpg
-  credit: dargadgetz
-  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
+  feature: abstract-5.jpg
+  credit: Chris Kong
+  creditlink: http://visualskyrim.github.io/
 comments: true
 share: true
 ---
@@ -67,7 +67,7 @@ libraryDependencies += "com.typesafe" % "config" % "1.2.1"
 Ok, by now, you could use a module named ***ConfigFactory*** in your project to load your config files.
 
 
-It's time to add your own config file. 
+It's time to add your own config file.
 
 Add `application.config` under your `src/main/resources`, and write some random configs into it.
 Here is mine:
@@ -179,7 +179,7 @@ And this time when you run `sbt test`, you will get:
 333
 {% endhighlight %}
 
-That is because the sequence of config files overwrite each others is: 
+That is because the sequence of config files overwrite each others is:
 
 {% highlight PowerShell %}
 src/test/resources/test.conf
