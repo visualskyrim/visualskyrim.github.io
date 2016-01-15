@@ -32,7 +32,7 @@ REF
 - Responseの内容をチェックしたいんですが、チェックするとRequestを送信するのが遅くなる。バランスが取りにくい。
 - 自分でそんな負荷試験プログラム書きたくない。
 
-Locustは以上の全ての問題を解決できます。（謎の声：理想の負荷試験、Locust）
+Locustは以上の全ての問題を解決できます。
 
 # Locustの基本機能
 
@@ -137,6 +137,9 @@ python -H [you_url_or_ip_of_your_application] -f [path_of_your_simple] --slave -
 {% endhighlight %}
 
 >　分散型負荷試験をやる時、３つの注意点がある：
+>
 >　1.　MasterとSlaveと通信があるので、FirewallやSecurityGroupを設定しないといけない。
+>
 >　2.　重い負荷をテストするとHealthCheckなどのため、同時でたくさんファイルがOpenするから、Ulimitを超えるかも。だから、MasterとSlaveの各サーバーで、Locustを起動する前に`ulimit 4096`をさきに実行します。
+>
 >　3.　Defaultの8089のportを変更したいなら、Masterで`--master-bind-port=5557`のように追加して、Slaveで`--master-port=5557`を追加します。
