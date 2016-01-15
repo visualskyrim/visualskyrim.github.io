@@ -2,7 +2,7 @@
 layout: post
 title: "Scala - Use Multiple Configs in Sbt Project"
 description: "Better way to organize your sbt project"
-modified: 2014-09-11
+modified: 2016-01-11
 tags: Scala sbt
 category: Scala
 image:

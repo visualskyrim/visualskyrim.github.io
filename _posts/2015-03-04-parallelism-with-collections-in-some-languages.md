@@ -57,7 +57,6 @@ foreach (String item in strList)
 {
     // ...    
 }
-
 {% endhighlight %}
 
 to do that in parallel way, we use the parallel version of `foreach`, like this:
