@@ -15,7 +15,7 @@ owner:
   # Social networking links used in footer. Update and remove as you like.
   twitter:
   facebook:
-  github:
+  github:         visualskyrim
   stackexchange:
   linkedin:
   instagram:
@@ -23,7 +23,7 @@ owner:
   tumblr:
   # For Google Authorship https://plus.google.com/authorship
   # google plus id, include the '+', eg +mmistakes
-  google_plus:    +yourid
+  google_plus:
 
 # Background image to be tiled on all pages
 background: background.png
