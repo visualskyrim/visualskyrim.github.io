@@ -39,7 +39,7 @@ At least we should have following two column in this table:
 
 And now we could start to make the query step by step:
 
-***Step 1***: preprocess the log table:
+## Step 1: preprocess the log table:
 
 In this step, we do some type converting to make the calculation in the following
 steps easier:
@@ -52,7 +52,7 @@ FROM
   ds.access_log_table -- This is the table where you put your log data into
 {% endhighlight %}
 
-***Step 2***: find the last access to the current access
+## Step 2: find the last access to the current access
 
 After last step, we now have every access for each row.
 In this step, we are going to add a column to represent last access to the access in each row.
@@ -117,7 +117,7 @@ After this step, we will get the result like:
 ~~~
 
 
-***Step 3***: Decide whether an access is the beginning of a session
+## Step 3: Decide whether an access is the beginning of a session
 
 In this step, we are gonna tag each access whether it is the beginning of sessions.
 And as we said already, **a session will break if the next session is 30 minute after current session**.
@@ -167,7 +167,7 @@ Now we have result like:
 |         |                 |                      |                  |
 ~~~
 
-***Step 4***: Decide whether the access is the end of session
+## Step 4: Decide whether the access is the end of session
 
 Things become complex from here.
 
@@ -306,7 +306,7 @@ After this step, we get all the accesses that are **either the start or the end 
 |         |                 |                      |                  |                |
 ~~~
 
-***Step 5***: Get sessions
+## Step 5: Get sessions
 
 We are really close now.
 
