@@ -13,8 +13,7 @@ comments: true
 share: true
 ---
 
-
-`Filter` is a very useful concept in scala version of Play Framework.
+Filter is a very useful concept in scala version of Play Framework.
 
 It can allow you to do some general process to the requests before and after they are passed to controller,
 which also allows you to get **access to the context of requests before and after processed** by controller.
