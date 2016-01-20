@@ -235,13 +235,13 @@ Let's say there is one partition, which **is already ordered by access_time**, f
 The combination of `start_of_session` and `is_next_access_sos` and the meaning behind at this point must by one of the following:
 
 ~~~ html
-| start_of_session | is_next_access_sos | this_access_must_be |
-|------------------|--------------------|---------------------|
-| true             | false              | the first access in the session with number of access >= 2 |
-| true             | true               | the only access in the session |
-| true             | null               | the only access in the session, and the last access in the partition |
-| false            | true               | the last access in the session with number of access >= 2 |
-| false            | false              | this access is not the first access nor the last in the session with number of access >= 3 |
+| start_of_session | is_next_access_sos | this_access_must_be                                                                                        |
+|------------------|--------------------|------------------------------------------------------------------------------------------------------------|
+| true             | false              | the first access in the session with number of access >= 2                                                 |
+| true             | true               | the only access in the session                                                                             |
+| true             | null               | the only access in the session, and the last access in the partition                                       |
+| false            | true               | the last access in the session with number of access >= 2                                                  |
+| false            | false              | this access is not the first access nor the last in the session with number of access >= 3                 |
 | false            | null               | the last access in the session with number of access >=2, and this access is the last one in the partition |
 ~~~
 
