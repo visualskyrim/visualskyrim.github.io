@@ -110,11 +110,11 @@ Leave it like that, and we will deal with it later.
 
 After this step, we will get the result like:
 
-{% raw %}
+~~~ html
 | user_id | access_time_sec | prev_access_time_sec |
 |---------|-----------------|----------------------|
 |         |                 |                      |
-{% endraw %}
+~~~
 
 
 ***Step 3***: Decide whether an access is the beginning of a session
@@ -161,11 +161,11 @@ So they're considered as the beginning of session by default.
 
 Now we have result like:
 
-{% raw %}
+~~~ html
 | user_id | access_time_sec | prev_access_time_sec | start_of_session |
 |---------|-----------------|----------------------|------------------|
 |         |                 |                      |                  |
-{% endraw %}
+~~~
 
 ***Step 4***: Decide whether the access is the end of session
 
@@ -220,7 +220,7 @@ The reason why we need to know this, is, let's consider this:
 Let's say there is one partition, which **is already ordered by access_time**, for a user like this following
 
 
-{% raw %}
+~~~ html
 | user_id | access_time_sec | prev_access_time_sec | start_of_session | is_next_access_sos |
 |---------|-----------------|----------------------|------------------|--------------------|
 |         |                 |                      | true             | false              |
@@ -230,11 +230,11 @@ Let's say there is one partition, which **is already ordered by access_time**, f
 |         |                 |                      | false            | false              |
 |         |                 |                      | false            | true               |
 |         |                 |                      | true             | null               |
-{% endraw %}
+~~~
 
 The combination of `start_of_session` and `is_next_access_sos` and the meaning behind at this point must by one of the following:
 
-{% raw %}
+~~~ html
 | start_of_session | is_next_access_sos | this_access_must_be |
 |------------------|--------------------|---------------------|
 | true             | false              | the first access in the session with number of access >= 2 |
@@ -243,7 +243,7 @@ The combination of `start_of_session` and `is_next_access_sos` and the meaning b
 | false            | true               | the last access in the session with number of access >= 2 |
 | false            | false              | this access is not the first access nor the last in the session with number of access >= 3 |
 | false            | null               | the last access in the session with number of access >=2, and this access is the last one in the partition |
-{% endraws %}
+~~~
 
 Knowing this, we can easily get whether an access is the last access in the partition.
 
@@ -300,11 +300,11 @@ WHERE
 
 After this step, we get all the accesses that are **either the start or the end of a session** in the result.
 
-{% raw %}
+~~~ html
 | user_id | access_time_sec | prev_access_time_sec | start_of_session | end_of_session |
 |---------|-----------------|----------------------|------------------|----------------|
 |         |                 |                      |                  |                |
-{% endraw %}
+~~~
 
 ***Step 5***: Get sessions
 
