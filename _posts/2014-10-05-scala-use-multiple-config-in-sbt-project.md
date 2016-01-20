@@ -6,7 +6,7 @@ modified: 2016-01-11
 tags: Scala sbt
 category: Scala
 image:
-  feature: abstract-3.jpg
+  feature: abstract-5.jpg
   credit: Chris Kong
   creditlink: http://visualskyrim.github.io/
 comments: true
