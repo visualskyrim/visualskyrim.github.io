@@ -6,7 +6,7 @@ modified: 2014-09-11
 tags: BigQuery
 category: Snippets
 image:
-  feature: abstract-9.jpg
+  feature: abstract-12.jpg
   credit: Chris Kong
   creditlink: http://visualskyrim.github.io/
 comments: true

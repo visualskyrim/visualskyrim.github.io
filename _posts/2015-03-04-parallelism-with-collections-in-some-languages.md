@@ -6,7 +6,7 @@ modified: 2014-09-11
 tags: C# Scala Python Parallelism
 category: Snippets
 image:
-  feature: abstract-9.jpg
+  feature: abstract-11.jpg
   credit: Chris Kong
   creditlink: http://visualskyrim.github.io/
 comments: true

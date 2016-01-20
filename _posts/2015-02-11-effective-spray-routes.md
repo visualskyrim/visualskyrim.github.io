@@ -6,7 +6,7 @@ modified: 2015-02-11
 tags: [python,locust,load test]
 category: Spray
 image:
-  feature: abstract-9.jpg
+  feature: abstract-10.jpg
   credit: Chris Kong
   creditlink: http://visualskyrim.github.io/
 comments: true
