@@ -6,7 +6,7 @@ modified: 2015-02-08
 tags: Java Scala PlayFramework
 category: PlayFramework
 image:
-  feature: abstract-4.jpg
+  feature: abstract-9.jpg
   credit: Chris Kong
   creditlink: http://visualskyrim.github.io/
 comments: true

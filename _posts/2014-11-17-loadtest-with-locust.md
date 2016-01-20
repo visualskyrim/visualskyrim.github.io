@@ -4,8 +4,9 @@ title: Locust - 負荷試験
 description: "Let it crash!"
 modified: 2014-11-18
 tags: [python,locust,load test]
+category: LoadTest
 image:
-  feature: abstract-3.jpg
+  feature: abstract-8.jpg
   credit: Chris Kong
   creditlink: http://visualskyrim.github.io/
 comments: true

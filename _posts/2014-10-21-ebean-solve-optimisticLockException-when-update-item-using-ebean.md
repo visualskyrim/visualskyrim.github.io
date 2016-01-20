@@ -4,8 +4,9 @@ title: Ebean - Solve OptimisticLockException when update item using Ebean
 description: "Or maybe use transaction"
 modified: 2014-10-05
 tags: [Ebean]
+category: Snippets
 image:
-  feature: abstract-3.jpg
+  feature: abstract-6.jpg
   credit: Chris Kong
   creditlink: http://visualskyrim.github.io/
 comments: true
