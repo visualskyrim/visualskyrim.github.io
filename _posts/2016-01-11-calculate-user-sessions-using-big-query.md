@@ -2,7 +2,7 @@
 layout: post
 title: "BigQuery - Calculate User Access Sessions using BigQuery"
 description: "Extremely complex calculation can be solved with one query in BQ"
-modified: 2014-09-11
+modified: 2016-01-11
 tags: BigQuery
 category: Snippets
 image:
