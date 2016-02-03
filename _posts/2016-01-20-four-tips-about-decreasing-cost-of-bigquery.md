@@ -2,7 +2,7 @@
 layout: post
 title: "BigQuery - Four Tips about Decreasing Cost of BigQuery"
 description: "Design carefully or it will make you poor"
-modified: 2016-01-21
+modified: 2016-02-03
 tags: BigQuery
 category: Snippets
 image:
@@ -12,6 +12,8 @@ image:
 comments: true
 share: true
 ---
+
+> **UPDATE 2016-02-03:** Change of the opinion of deviding table into smaller ones.
 
 BigQuery is a very powerful data analytics service.
 A very heavy query on massive data may only take seconds in BigQuery.
@@ -213,6 +215,24 @@ this design is actually perfect.
 So, whether separate further depends on the size of your data.
 The point is to know the **granularities** of your data before you make the decision.
 
+**Update 2016-02-03**:
+
+Actually, dividing table by not only date but also some other id will make BigQuery not functioning well.
+
+According to my own experience, I have 20000+ tables in one dataset separated by both dates and a id.
+The tables look like `[table_name]_[extra_id]_[date_YYmmdd]`.
+
+And following issues will truly happen:
+
+- BigQuery's API call will fail with InternalException occasionally. This will happen to the API call used to create empty table with given schema.
+- There are following three kinds of time record in each query you have fired. Usually the interval between first one and second one is less than 1 second. When you have a lot of tables like my case, the gap between `creationTime` and `startTime` could last 20 seconds.
+  - `creationTime`: The time when your request arrives the BQ server.
+  - `startTime`: The time BQ server to start execute the Query.
+  - `endTime`: The time that BQ server finishes you query or finds it invalid.
+- BigQuery start to be not able to find your table. There will be query failing because of errors like ***FROM clause with table wildcards matches no table*** or ***Not found: Table ***, while you know exactly the tables do exist. And when you run the failed query again without fixing anything, the query will dramatically succeed.
+
+So, I **STRONGLY** recommend not to use too many tables in the same dataset.
+
 
 ### Tip 4: Think, before use mid-table
 
@@ -254,6 +274,7 @@ I will just to choose save more of my money.
 
 And if you format your query well, no matter how long your query grows,
 it will still looks nice.
+
 
 
 _
