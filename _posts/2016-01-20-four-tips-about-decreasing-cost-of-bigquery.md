@@ -270,7 +270,7 @@ Not all people will agree on this.
 Some people may start to say "This is too nasty", "God, this query is too fat." or even "WTF is this?".
 
 Well, generate mid-table in this situation surely charging you more.
-I will just to choose save more of my money.
+I will just choose save more of my money.
 
 And if you format your query well, no matter how long your query grows,
 it will still looks nice.
