@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "BigQuery - Four Tips about Decreasing Cost of BigQuery"
-description: "Design carefully or it will make you poor"
-modified: 2016-02-03
-tags: BigQuery
-category: Snippets
+title: "Akka - Build distributed load balanced actor system on docker"
+description: "Behold, the power of Akka."
+modified: 2016-02-22
+tags: [akka,scala,distributed system]
+category: Akka
 image:
   feature: abstract-14.jpg
   credit: Chris Kong
@@ -484,5 +484,5 @@ And that is how the use docker and Akka to build a load balanced distributed sys
 - It is ok that we add worker node to our master node on runtime. But when we try to disconnect worker node from master node, there will be something wrong. We can add a mechanism to detect dying worker and disconnect them.
 
 
-> You can find above source code at: 
+> You can find above source code at:
 > https://github.com/visualskyrim/scala-akka-loadbalance-pattern-with-docker
