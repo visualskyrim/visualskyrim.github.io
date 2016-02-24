@@ -405,15 +405,6 @@ sbt clean stage universal:packageZipTarball
 ## Dockerfile
 
 ```
-## Dockerfile for Sprocket Engine
-#
-# CAUTION: You must provide env file and /mnt/logs volumes to work properly.
-#
-# example:
-#  docker run --name=sprocket-engine-master -d --net=host --env-file=/path/to/sprocket-engine.env -e AKKA_PORT=2550 -v /path/to/logs:/mnt/logs sprocket-engine:VERSION master
-#  docker run --name=sprocket-engine-agent  -d --net=host --env-file=/path/to/sprocket-engine.env -e AKKA_PORT=2551 -v /path/to/logs:/mnt/logs sprocket-engine:VERSION agent
-#  docker run --name=sprocket-engine-worker -d --net=host --env-file=/path/to/sprocket-engine.env -e AKKA_PORT=2552 -v /path/to/logs:/mnt/logs sprocket-engine:VERSION worker
-#
 
 FROM java:7-jre
 MAINTAINER Chris Kong <chris.kong.cn@gmail.com>
