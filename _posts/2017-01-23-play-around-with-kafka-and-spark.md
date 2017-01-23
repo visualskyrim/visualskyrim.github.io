@@ -30,7 +30,7 @@ The versions of components in this post will be:
 
 # Setup
 
-1. Install Kafka: 
+***Step 1*** Install Kafka:
 
 ```
 wget https://www.apache.org/dyn/closer.cgi?path=/kafka/0.10.1.0/kafka_2.10-0.10.1.0.tgz
@@ -38,25 +38,30 @@ tar -xzf kafka_2.11-0.10.1.0.tgz
 cd kafka_2.11-0.10.1.0
 ```
 
-2. Start a zookeeper for kafka
+***Step 2*** Start a zookeeper for kafka
 
 ```
 bin/zookeeper-server-start.sh config/zookeeper.properties
 ```
 
-3. Start kafka
+***Step 3*** Start kafka
 
 ```
 bin/kafka-server-start.sh config/server.properties
 ```
 
-4. Create a topic *test* on kafka
+***Step 4*** Create a topic *test* on kafka
 
 ```
-bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+bin/kafka-topics.sh \
+--create \
+--zookeeper localhost:2181 \
+--replication-factor 1 \
+--partitions 1 \
+--topic test
 ```
 
-5. Program a spark consumer for word frequency using scala:
+***Step 5*** Program a spark consumer for word frequency using scala:
 
 sbt file:
 
@@ -117,13 +122,13 @@ object AQuickExample extends App {
 {% endhighlight %}
 
 
-6. Start the Spark consumer you wrote in step 5.
+***Step 6*** Start the Spark consumer you wrote in step 5.
 
 ```
 sbt run
 ```
 
-7. Start a console kafka producer and fire some message to the kafka using the topic *test*.
+***Step 7*** Start a console kafka producer and fire some message to the kafka using the topic *test*.
 
 Start the console producer:
 
@@ -137,7 +142,7 @@ Send some message to the kafka:
 hello world
 ```
 
-8. Once you send the message, there will be something showing up in your Spark consumer terminal representing the word frequency:
+***Step 8*** Once you send the message, there will be something showing up in your Spark consumer terminal representing the word frequency:
 
 ```
 -------------------------------------------
