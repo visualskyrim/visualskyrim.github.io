@@ -50,7 +50,7 @@ bin/zookeeper-server-start.sh config/zookeeper.properties
 bin/kafka-server-start.sh config/server.properties
 ```
 
-4. Create a topic `test` on kafka
+4. Create a topic *test* on kafka
 
 ```
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
@@ -123,7 +123,7 @@ object AQuickExample extends App {
 sbt run
 ```
 
-7. Start a console kafka producer and fire some message to the kafka using the topic `test`.
+7. Start a console kafka producer and fire some message to the kafka using the topic *test*.
 
 Start the console producer:
 
