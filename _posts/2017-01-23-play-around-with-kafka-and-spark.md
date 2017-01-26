@@ -133,7 +133,7 @@ sbt run
 Start the console producer:
 
 ```
-bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic test
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
 ```
 
 Send some message to the kafka:
