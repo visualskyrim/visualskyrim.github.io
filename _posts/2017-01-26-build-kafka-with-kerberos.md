@@ -75,7 +75,7 @@ During this installation, you will be asked with the same questions. Just anwser
 > *Administrative server for your realm?* [kerberos.com]
 
 
-These question will generate a Kerberos config file under you `/etc/krb5.config`.
+These question will generate a Kerberos config file under you */etc/krb5.config*.
 
 
 Install kafka:
@@ -87,7 +87,7 @@ cd kafka_2.11-0.10.1.0
 ```
 
 Later in this post, you will need to transfer authentication files(keytabs) between servers.
-For that purpose, this post will use `scp`, thus `openssh-server` will be installed.
+For that purpose, this post will use*scp*, thus*openssh-server* will be installed.
 
 If you are going to use other method to transfer files from ***server-kerberos***, feel free to skip this installation.
 
@@ -105,7 +105,7 @@ After that, go to each server to get their IP address by
 ifconfig
 ```
 
-Then input those IP address and the hostnames into `/etc/hosts`. Something like this:
+Then input those IP address and the hostnames into */etc/hosts*. Something like this:
 
 ```
 192.168.56.104  kerberos.com
@@ -125,10 +125,10 @@ Create the new realm.
 sudo krb5_newrealm
 ```
 
-> This might stuck at the place where command-line prompts `Loading random data`.
-> If this happens, run the following code first: `cat /dev/sda > /dev/urandom`
+> This might stuck at the place where command-line prompts *Loading random data*.
+> If this happens, run the following code first: *cat /dev/sda > /dev/urandom*
 
-Then edit `/etc/krb5.conf`.
+Then edit */etc/krb5.conf*.
 
 The updated content should be like:
 
@@ -171,7 +171,7 @@ $ sudo kadmin.local
 > ktadd -k /tmp/kafka-client.keytab kafka-client
 ```
 
-Move `/tmp/zookeeper.keytab` and `/tmp/kafka.keytab` to your ***server-kafka***, and move `/tmp/kafka-client.keytab` to your ***server-kafka-client***.
+Move */tmp/zookeeper.keytab* and */tmp/kafka.keytab* to your ***server-kafka***, and move */tmp/kafka-client.keytab* to your ***server-kafka-client***.
 
 ### Kafka Server
 
@@ -182,13 +182,13 @@ It's like in America, people usually use drive lisence, and in China people use 
 
 The second thing is the file or document that identifies you according to your accepted identify method.
 
-The file to identify the role in our SASL context, is the keytab file we generated via the `kadmin` just now.
+The file to identify the role in our SASL context, is the keytab file we generated via the *kadmin* just now.
 
-Suggest you put `zookeeper.keytab` and `kafka.keytab` under `/etc/kafka/` of you ***server-kafka***.
+Suggest you put *zookeeper.keytab* and *kafka.keytab* under */etc/kafka/* of you ***server-kafka***.
 
 We need a way to tell our program where to find this file and how to hand it over to the authority(Kerberos). And that will be the JAAS file.
 
-We create the JAAS files for Zookeeper and Kafka like below and put it to `/etc/kafka/zookeeper_jaas.conf` and `/etc/kafka/kafka_jaas.conf`.
+We create the JAAS files for Zookeeper and Kafka like below and put it to */etc/kafka/zookeeper_jaas.conf* and */etc/kafka/kafka_jaas.conf*.
 
 ```
 Server {
@@ -237,11 +237,11 @@ and
 -Dsun.security.krb5.debug=true
 ```
 
-To make this post easy and simple, I choose to modify the the `bin/kafka-run-class.sh`, `bin/kafka-server-start.sh` and `bin/zookeeper-server-start.sh` to insert those JVM options into the launch command.
+To make this post easy and simple, I choose to modify the the *bin/kafka-run-class.sh*, *bin/kafka-server-start.sh* and *bin/zookeeper-server-start.sh* to insert those JVM options into the launch command.
 
-To enable SASL authentication in Zookeeper and Kafka broker, simply uncomment and edit the config files `config/zookeeper.properties` and `config/server.properties`.
+To enable SASL authentication in Zookeeper and Kafka broker, simply uncomment and edit the config files *config/zookeeper.properties* and *config/server.properties*.
 
-For `config/zookeeper.properties`:
+For *config/zookeeper.properties*:
 
 ```
 authProvider.1=org.apache.zookeeper.server.auth.SASLAuthenticationProvider
@@ -250,7 +250,7 @@ kerberos.removeHostFromPrincipal=true
 kerberos.removeRealmFromPrincipal=true
 ```
 
-For `config/server.properties`:
+For *config/server.properties*:
 
 ```
 listeners=SASL_PLAINTEXT://kafka.com:9092
@@ -271,7 +271,7 @@ $ bin/kafka-server-start.sh config/zookeeper.properties
 
 The setting up for you ***server-kafka-client*** is quite similar to what you've just done for ***server-kafka***.
 
-For JAAS file, because we are going to use the same principal and keytab for both producer and consumer in this case, we only need to create one single JAAS file `/etc/kafka/kafka_client_jaas.conf`:
+For JAAS file, because we are going to use the same principal and keytab for both producer and consumer in this case, we only need to create one single JAAS file */etc/kafka/kafka_client_jaas.conf*:
 
 ```
 KafkaClient {
@@ -283,7 +283,7 @@ KafkaClient {
 };
 ```
 
-We also need to put JVM options to the `bin/kafka-run-class.sh`:
+We also need to put JVM options to the *bin/kafka-run-class.sh*:
 
 ```
 -Djava.security.krb5.conf=/etc/krb5.conf
