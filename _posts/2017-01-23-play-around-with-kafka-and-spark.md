@@ -33,7 +33,7 @@ The versions of components in this post will be:
 ***Step 1*** Install Kafka:
 
 ```
-wget http://ftp.meisei-u.ac.jp/mirror/apache/dist/kafka/0.10.1.0/kafka_2.10-0.10.1.0.tgz
+wget http://ftp.meisei-u.ac.jp/mirror/apache/dist/kafka/0.10.1.0/kafka_2.11-0.10.1.0.tgz
 tar -xzf kafka_2.11-0.10.1.0.tgz
 cd kafka_2.11-0.10.1.0
 ```
