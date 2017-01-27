@@ -56,7 +56,9 @@ apt-get install krb5-admin-server krb5-kdc
 During the installation, you will be asked for several settings. Enter the settings like below:
 
 > *Default Kerberos version 5 realm?* [VISUALSKYRIM]
+>
 > *Kerberos servers for your realm?* [kerberos.com]
+>
 > *Administrative server for your realm?* [kerberos.com]
 
 
@@ -71,7 +73,9 @@ sudo apt-get install krb5-user
 During this installation, you will be asked with the same questions. Just anwser them with the same answer:
 
 > *Default Kerberos version 5 realm?* [VISUALSKYRIM]
+>
 > *Kerberos servers for your realm?* [kerberos.com]
+>
 > *Administrative server for your realm?* [kerberos.com]
 
 
@@ -126,6 +130,7 @@ sudo krb5_newrealm
 ```
 
 > This might stuck at the place where command-line prompts *Loading random data*.
+>
 > If this happens, run the following code first: *cat /dev/sda > /dev/urandom*
 
 Then edit */etc/krb5.conf*.
