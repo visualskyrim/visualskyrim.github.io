@@ -18,7 +18,7 @@ share: true
 # Purpose
 
 - Setup a simple pipeline for stream processing within the VMs.
-- Integrate Kafka with Kerberos' authentication.
+- Integrate Kafka with Kerberos' SASL authentication.
 - Console pipeline to check if our setup works.
 
 The versions of components in this post will be:
@@ -29,7 +29,7 @@ The versions of components in this post will be:
 
 # Prepare the Servers
 
-We are going to have 5 Ubuntu servers in the VirtualBox:
+We are going to have 3 Ubuntu servers in the VirtualBox:
 
 ***server-kerberos*** A server for Kerberos.
 ***server-kafka*** A server for both Zookeeper and Kafka Broker.
@@ -42,7 +42,7 @@ For the same reason, ***server-kafka*** can also be splited into two servers.
 
 ## Installation of Kerberos and Kafka
 
-Use VirtualBox to create all these 4 servers with Ubuntu.
+Use VirtualBox to create all these 3 servers with Ubuntu.
 Go to your VirtualBox manager, and make sure all your boxes' network adapters are set to NAT.
 
 For ***server-kerberos***:
@@ -62,7 +62,7 @@ During the installation, you will be asked for several settings. Enter the setti
 > *Administrative server for your realm?* [kerberos.com]
 
 
-For *server-kafka*, *server-kafka-client*:
+For ***server-kafka***, ***server-kafka-client***:
 
 Install krb5-user for SASL authentication:
 
@@ -70,7 +70,7 @@ Install krb5-user for SASL authentication:
 sudo apt-get install krb5-user
 ```
 
-During this installation, you will be asked with the same questions. Just anwser them with the same answer:
+During this installation, you will be asked the same questions. Just answer them with the same answer:
 
 > *Default Kerberos version 5 realm?* [VISUALSKYRIM]
 >
@@ -91,9 +91,9 @@ cd kafka_2.11-0.10.1.0
 ```
 
 Later in this post, you will need to transfer authentication files(keytabs) between servers.
-For that purpose, this post will use*scp*, thus*openssh-server* will be installed.
+For that purpose, this post will use *scp*, and *openssh-server* will be installed.
 
-If you are going to use other method to transfer files from ***server-kerberos***, feel free to skip this installation.
+If you are going to use other methods to transfer files from ***server-kerberos***, feel free to skip this installation.
 
 ```
 apt-get install openssh-server
@@ -101,7 +101,7 @@ apt-get install openssh-server
 
 ## Setting up servers
 
-Before starting to setup servers, we need to change our VMs' network adapters to **Host-Only** and reboot to get individual IP address for each VM.
+Before starting to set up servers, we need to change our VMs' network adapters to **Host-Only** and reboot to get an individual IP address for each VM.
 
 After that, go to each server to get their IP address by
 
@@ -183,7 +183,7 @@ Move */tmp/zookeeper.keytab* and */tmp/kafka.keytab* to your ***server-kafka***,
 Just like real world, every individual(program) in the distributed system must tell the authority(Kerberos) two things to identify itself:
 
 The first thing is the accepted way for this role to be identified.
-It's like in America, people usually use drive lisence, and in China people use ID card, while in Japan, people use so called MyNumber card.
+It's like in America, people usually use drive license, and in China people use ID card, while in Japan, people use so called MyNumber card.
 
 The second thing is the file or document that identifies you according to your accepted identify method.
 
@@ -193,7 +193,7 @@ Suggest you put *zookeeper.keytab* and *kafka.keytab* under */etc/kafka/* of you
 
 We need a way to tell our program where to find this file and how to hand it over to the authority(Kerberos). And that will be the JAAS file.
 
-We create the JAAS files for Zookeeper and Kafka like below and put it to */etc/kafka/zookeeper_jaas.conf* and */etc/kafka/kafka_jaas.conf*.
+We create the JAAS files for Zookeeper and Kafka and put it to */etc/kafka/zookeeper_jaas.conf* and */etc/kafka/kafka_jaas.conf*.
 
 ```
 Server {
@@ -296,7 +296,7 @@ We also need to put JVM options to the *bin/kafka-run-class.sh*:
 -Dsun.security.krb5.debug=true
 ```
 
-## Give it a shot
+## Give it a try
 
 Now we can check if our setup actually works.
 
