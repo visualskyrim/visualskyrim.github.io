@@ -469,7 +469,7 @@ WHERE NOT (start_of_session AND NOT end_of_session) -- rule out the accesses tha
 {% endhighlight %}
 
 
-Now we have all the sessions with `user_id`, `duration` and `session_start_time`.
+Now we have all the sessions with **user_id**, **duration** and **session_start_time**.
 
 The main points in constructing this query are:
 
