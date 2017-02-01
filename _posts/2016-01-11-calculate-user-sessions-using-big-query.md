@@ -76,11 +76,11 @@ FROM
 {% endhighlight %}
 
 
-The `LAG` function is used with `PARTITION BY`, which is used to get the specific column of the previous row
+The **LAG** function is used with **PARTITION BY**, which is used to get the specific column of the previous row
 in the same partition.
 
-The partition is separated by `PARTITION BY` function, while the order within the partition is specified
-by `ORDER BY` inside the `OVER` statement.
+The partition is separated by **PARTITION BY** function, while the order within the partition is specified
+by **ORDER BY** inside the **OVER** statement.
 
 In this case, we separate all the accesses in the partitions for each user by
 
@@ -100,11 +100,11 @@ To get the access_time_sec of previous row, we do:
 LAG(access_time_sec, 1) OVER (PARTITION BY user_id ORDER BY access_time_sec) AS prev_access_time_sec
 {% endhighlight %}
 
-> More details about function `LAG`, you can refer to the [Doc](https://cloud.google.com/bigquery/query-reference?hl=en).
+> More details about function **LAG**, you can refer to the [Doc](https://cloud.google.com/bigquery/query-reference?hl=en).
 
 Of course, like what you might be thinking of right now, for each partition,
-the first row in each partition doesn't have the `prev_access_time_sec`.
-In the result, it will be `null` at this point.
+the first row in each partition doesn't have the **prev_access_time_sec`.
+In the result, it will be **null** at this point.
 
 Leave it like that, and we will deal with it later.
 
@@ -155,7 +155,7 @@ FROM
 {% endhighlight %}
 
 
-As we just said, the first access in each partition can only have prev_access_time_sec as `null`.
+As we just said, the first access in each partition can only have prev_access_time_sec as **null**.
 So they're considered as the beginning of session by default.
 
 
@@ -171,9 +171,9 @@ Now we have result like:
 
 Things become complex from here.
 
-To achieve the goal of this step, we take two `select`s.
+To achieve the goal of this step, we take two **select** s.
 
-First we tag each row(access) with **whether the next access is the beginning of the session** in the partition with the same `user_id`:
+First we tag each row(access) with **whether the next access is the beginning of the session** in the partition with the same **user_id**:
 
 {% highlight sql %}
 SELECT
@@ -232,7 +232,7 @@ Let's say there is one partition, which **is already ordered by access_time**, f
 |         |                 |                      | true             | null               |
 ~~~
 
-The combination of `start_of_session` and `is_next_access_sos` and the meaning behind at this point must by one of the following:
+The combination of **start_of_session** and **is_next_access_sos** and the meaning behind at this point must by one of the following:
 
 ~~~ html
 | start_of_session | is_next_access_sos | this_access_must_be                                                                                        |
@@ -386,7 +386,7 @@ FROM
 {% endhighlight %}
 
 
-Because of `we only have start and end access in the result of previous query`, the previous access time of each access must be either of following:
+Because of **we only have start and end access in the result of previous query**, the previous access time of each access must be either of following:
 
 - If the access is the start of session: this previous access time must be the end time of the previous session
 - If the access is not the start of session: this previous access time must be the the start time of the current session <-- this is what we need
