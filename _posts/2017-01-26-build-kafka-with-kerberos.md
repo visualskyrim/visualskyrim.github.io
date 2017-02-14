@@ -305,7 +305,7 @@ First we start a console-producer:
 ```
 bin/kafka-console-producer.sh --broker-list kafka.com:9092 --topic test \
 --producer-property security.protocol=SASL_PLAINTEXT \
---producer-property sasl.mechasim=GSSAPI \
+--producer-property sasl.mechanism=GSSAPI \
 --producer-property sasl.kerberos.service.name=kafka
 ```
 
@@ -315,7 +315,7 @@ And start a console-comsumer:
 ```
 bin/kafka-console-consumer.sh --bootstrap-server ssh.com:9092 --topic test \
 --consumer-property security.protocol=SASL_PLAINTEXT \
---consumer-property sasl.mechasim=GSSAPI \
+--consumer-property sasl.mechanism=GSSAPI \
 --consumer-property sasl.kerberos.service.name=kafka
 ```
 
