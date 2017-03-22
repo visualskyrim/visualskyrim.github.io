@@ -4,7 +4,7 @@ title: "Ebean - Lazy load to check entity's existence"
 description: "Without actually fetch the data."
 modified: 2016-01-14
 tags: Ebean Database
-category: ServerDeveloping
+category: Snippets
 image:
   feature: abstract-2.jpg
   credit: Chris Kong

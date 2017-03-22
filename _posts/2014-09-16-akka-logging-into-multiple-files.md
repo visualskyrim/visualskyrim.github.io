@@ -4,7 +4,7 @@ title: "Akka - Logging into multiple files"
 description: "Just about everything you'll need to style in the theme: headings, paragraphs, blockquotes, tables, code blocks, and more."
 modified: 2014-09-16
 tags: Akka Logging
-category: ServerDeveloping
+category: Snippets
 image:
   feature: abstract-4.jpg
   credit: Chris Kong

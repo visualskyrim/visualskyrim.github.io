@@ -4,7 +4,7 @@ title: "DynamoDB - Import data via Data Pipeline"
 description: ""
 modified: 2016-02-25
 tags: [aws,dynamodb,aws data pipeline]
-category: aws
+category: FrameworkSetting
 image:
   feature: abstract-14.jpg
   credit: Chris Kong

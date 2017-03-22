@@ -4,7 +4,7 @@ title: "Akka - Build distributed load balanced actor system on docker"
 description: "Behold, the power of Akka."
 modified: 2016-02-22
 tags: [akka,scala,distributed system]
-category: Akka
+category: FrameworkSetting
 image:
   feature: abstract-14.jpg
   credit: Chris Kong

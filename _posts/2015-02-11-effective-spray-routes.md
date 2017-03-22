@@ -4,7 +4,7 @@ title: Effective Spray - Best way to arrange your routes
 description: "Best practice for routes"
 modified: 2015-02-11
 tags: [python,locust,load test]
-category: Spray
+category: Snippets
 image:
   feature: abstract-10.jpg
   credit: Chris Kong

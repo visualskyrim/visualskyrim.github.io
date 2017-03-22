@@ -4,7 +4,7 @@ title: "Build Kafka Cluster with Kerberos"
 description: "Step by step to show you how to make Kafka cluster work with Kerberos."
 modified: 2017-01-26
 tags: [stream process,kafka,kerberos]
-category: GetStart
+category: FrameworkSetting
 image:
   feature: abstract-14.jpg
   credit: Chris Kong

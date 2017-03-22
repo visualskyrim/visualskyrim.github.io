@@ -4,7 +4,7 @@ title: Play Framework - Connect to Remote Akka Actor
 description: "Make your API more powerful"
 modified: 2014-10-05
 tags: [play framework,akka,java,scala]
-category: PlayFramework
+category: FrameworkSetting
 image:
   feature: abstract-7.jpg
   credit: Chris Kong

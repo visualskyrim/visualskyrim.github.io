@@ -4,7 +4,7 @@ title: "Stream Process - Simple Get-Start with Kafka and Spark"
 description: "Build a simple stream processing stack with Kafka and Spark in you local env."
 modified: 2017-01-23
 tags: [stream process,kafka,spark]
-category: GetStart
+category: Snippets
 image:
   feature: abstract-14.jpg
   credit: Chris Kong

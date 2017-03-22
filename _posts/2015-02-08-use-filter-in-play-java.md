@@ -4,7 +4,7 @@ title: "PlayFramework(Java) - Use Filter to Record Process Time in API"
 description: "Hack the scala filter and use it in Java"
 modified: 2015-02-08
 tags: Java Scala PlayFramework
-category: PlayFramework
+category: Snippets
 image:
   feature: abstract-9.jpg
   credit: Chris Kong
