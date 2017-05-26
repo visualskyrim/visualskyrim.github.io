@@ -124,7 +124,7 @@ export default shallowWithStore;
 
 ## Make sure it’s working
 
-Let’s first try to shallow-render our component in the tests with the `shallowWithStore` we created. We are going to mock our Redux store by using [createMockStore(state)](https://www.npmjs.com/package/redux-test-utils) from [redux-test-utils](http://redux-test-utils/).
+Let’s first try to shallow-render our component in the tests with the ``shallowWithStore`` we created. We are going to mock our Redux store by using [createMockStore(state)](https://www.npmjs.com/package/redux-test-utils) from [redux-test-utils](http://redux-test-utils/).
 
 {% highlight js %}
 describe('ConnectedShowBox', () => {
@@ -140,7 +140,7 @@ describe('ConnectedShowBox', () => {
 {% endhighlight %}
 
 
-By using `shallowWithStore` with the mocked store, we can finally shallow-render our container.
+By using ``shallowWithStore`` with the mocked store, we can finally shallow-render our container.
 
 {% highlight js %}
 it("should render a text box with no string inside if search string is not provided by store", () => {
@@ -197,9 +197,9 @@ it("should render a text box with no string inside if search string is not provi
 
 To test the DOM structure, you can use [find()](http://airbnb.io/enzyme/docs/api/ShallowWrapper/find.html) to traverse the rendered result, then use [prop()](http://airbnb.io/enzyme/docs/api/ShallowWrapper/prop.html) to get the desired attribute then make the assertion.
 
-To test event handler, you can first get the element with `find()`, then use [simulate()](http://airbnb.io/enzyme/docs/api/ShallowWrapper/simulate.html) to trigger the event. After that, just make assertion as usual.
+To test event handler, you can first get the element with ``find()``, then use [simulate()](http://airbnb.io/enzyme/docs/api/ShallowWrapper/simulate.html) to trigger the event. After that, just make assertion as usual.
 
-Please note that we call `dive()` before calling `find()`.
+Please note that we call ``dive()`` before calling ``find()``.
 
 > I used [Chai](http://chaijs.com/) for assertion. It might look different from what you would write depending on your setup.
 
@@ -215,16 +215,16 @@ expect(component.find("").prop("value")).to.equal("");
 
 The reason is that shallow-render ***only renders the direct children of a component***.
 
-When we shallow-render connected container `<ConnectedShowBox />`, the deepest level it gets rendered is `<ShowBox />`. All the stuff inside the ShowBox’s `render()` will not be rendered at all.
+When we shallow-render connected container ``<ConnectedShowBox />``, the deepest level it gets rendered is ``<ShowBox />``. All the stuff inside the ShowBox’s ``render()`` will not be rendered at all.
 
 To make the result of shallow-render go one layer deeper( to render the stuff inside the `<ShowBox />`), we need to call [dive()](http://airbnb.io/enzyme/docs/api/ShallowWrapper/dive.html) first.
 
-> You can also test mapStateToProps here by simply changing the mocked `state(testState)`.
+> You can also test mapStateToProps here by simply changing the mocked ``state(testState)``.
 
 
 ## Test Redux dispatch mapDispatchToProps
 
-Test `mapDispatchToProps` with Enzyme is really easy.
+Test ``mapDispatchToProps`` with Enzyme is really easy.
 
 {% highlight js %}
 it("should render a text box with no string inside if search string is not provided by store", () => {
@@ -248,9 +248,9 @@ it("should render a text box with no string inside if search string is not provi
 });
 {% endhighlight %}
 
-Just like what we did to test `handleInput()`. First we use `find()` to get the element that we need to trigger, then use the `simulate()` to trigger the event.
+Just like what we did to test ``handleInput()``. First we use ``find()`` to get the element that we need to trigger, then use the ``simulate()`` to trigger the event.
 
-Finally use `isActionDispatched()` to check whether the expected action is dispatched.
+Finally use ``isActionDispatched()`` to check whether the expected action is dispatched.
 
 
 -
