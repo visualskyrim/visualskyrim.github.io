@@ -96,7 +96,7 @@ python producer.py
 
 I recommend you also use a simple script to create a consumer to check whether the current setup is working. I highly recommend using logstash to run a simple consumer with config file like:
 
-{% highlight json %}
+```
 input {
     kafka {
         group_id => "flink-test"
@@ -107,4 +107,4 @@ input {
 output {
   stdout {}
 }
-{% endhighlight %}
+```
