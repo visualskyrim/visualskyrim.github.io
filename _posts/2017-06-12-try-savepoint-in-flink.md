@@ -108,3 +108,18 @@ output {
   stdout {}
 }
 ```
+
+And start to consume by
+
+{% highlight bash %}
+./bin/logstash -f <your-config-file>
+{% endhighlight %}
+
+But any other kind of consumer will easily do the job.
+
+## Setup Flink
+
+First you will need to [download the flink](https://flink.apache.org/downloads.html) of the version you want/need.
+After download the package, unpack it. Then you will have everything you need to run flink on your machine.
+
+> Assume that `Java` and `mvn` are already installed.
