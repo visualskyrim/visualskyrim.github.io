@@ -135,7 +135,7 @@ But in this post, we are going to focus on save point configurations.
 
 Add following line to this file:
 
-{% highlight %}
+{% highlight yaml %}
 state.savepoints.dir: file:///home/<username>/<where-ever-you-want>
 {% endhighlight %}
 
