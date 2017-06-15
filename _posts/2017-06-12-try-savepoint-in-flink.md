@@ -87,3 +87,24 @@ while (True):
 # block until all async messages are sent
 producer.flush()
 {% endhighlight %}
+
+Then run this script to start feeding events:
+
+{% highlight bash %}
+python producer.py
+{% endhighlight %}
+
+I recommend you also use a simple script to create a consumer to check whether the current setup is working. I highly recommend using logstash to run a simple consumer with config file like:
+
+{% highlight json %}
+input {
+    kafka {
+        group_id => "flink-test"
+        topics => ["flink-test"]
+        bootstrap_servers => "localhost:9092"
+    }
+}
+output {
+  stdout {}
+}
+{% endhighlight %}
