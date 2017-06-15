@@ -225,3 +225,21 @@ public class DataTransfer {
     }
 }
 {% endhighlight %}
+
+## Start experiment
+
+To submit our job, first build the above project by:
+
+{% highlight bash %}
+mvn clean install -Pbuild-jar
+{% endhighlight %}
+
+There will be a fat jar under your target folder: `<project-name>.<version>.jar`
+
+To submit this jar as our job, run:
+
+{% highlight bash %}
+./bin/flink run <project-name>.<version>.jar
+{% endhighlight %}
+
+Once after it starts running, you will find files start to be generated in the `basePath`.
