@@ -243,3 +243,62 @@ To submit this jar as our job, run:
 {% endhighlight %}
 
 Once after it starts running, you will find files start to be generated in the `basePath`.
+
+#### Restart the job without save point
+
+After the job runs for a while, cancel the job in the flink UI.
+
+Check **the lastest finished file before cancellation**, and find **the last line** of this file. In my experiment, it's `{"idx": 2056}`.
+
+Then start the job again:
+
+{% highlight bash %}
+./bin/flink run <project-name>.<version>.jar
+{% endhighlight %}
+
+After a few minute, check **first finished file after restart**, and find **the first line** of this file. In my experiment, it's `{"idx": 2215}`.
+
+This means, there are events missing when we restart job without savepoin.
+
+> Finished file is the file that have been checked by flink's check point.
+> It is file that without prefix `in-progress` or suffix `pending`
+> Initially, a file under writing is in `in-progress` state.
+> When this file stop being written for a while(can be specified in config), this file become `pending`.
+> A checkpoint will turn `pending` files to the finished files.
+> Only finished file should be considered as the consistant output of flink. Otherwise you will get duplication.
+> For more info about checkpointing, please check their [official document](https://ci.apache.org/projects/flink/flink-docs-release-1.3/dev/stream/checkpointing.html).
+
+#### Restart with save point
+
+Let's try save pointing.
+This time, we will create a save point before cancel the job.
+
+Flink allows you to make save point by executing:
+
+{% highlight bash %}
+bin/flink savepoint <job-id>
+{% endhighlight %}
+
+The `<job-id>` can be found at the header of the job page in flink web UI.
+
+After you run this command, flink will tell you the path to your save point file. ***Do record this path***.
+
+Then, we cancel the job, and check **the lastest finished file before cancellation**, and find **the last line** of this file. In my experiment, it's `{"idx": 4993}`.
+
+Then we restart the job.
+
+Because we want to restart from a save point, we need to specify the save point when we start the job:
+
+{% highlight bash %}
+./bin/flink run <project-name>.<version>.jar -s <your-save-point-path>
+{% endhighlight %}
+
+After a few minute, check **first finished file after restart**, and find **the first line** of this file. In my experiment, it's `{"idx": 4994}`, which is consistant with the number before cancellation.
+
+## General thoughts
+
+Flink's save pointing is much easier than what I expect.
+The only thing I should constantly keep in mind is that we need record the save point file path carefully when we use crontab to create save points.
+Other than that, flink seems to handle all the data consistancy.
+
+As part of the further experiment and research, I think it could be very useful if we try flink's save point in the cluster setup with multiple task managers.
