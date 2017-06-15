@@ -123,3 +123,32 @@ First you will need to [download the flink](https://flink.apache.org/downloads.h
 After download the package, unpack it. Then you will have everything you need to run flink on your machine.
 
 > Assume that `Java` and `mvn` are already installed.
+
+### Setup local Flink cluster
+
+This will be the tricky part.
+
+First we need to change the config file: `./conf/flink-conf.yaml`.
+
+In this file, you can specify basically all the configuration for the flink cluster. Like job manager heap size, task manager heap size.
+But in this post, we are going to focus on save point configurations.
+
+Add following line to this file:
+
+{% highlight %}
+state.savepoints.dir: file:///home/<username>/<where-ever-you-want>
+{% endhighlight %}
+
+With this field specified, the flink will use this folder as the storage of save point files.
+In real world, I believe people usually use HDFS with `hdfs:///...` or S3 to store their save points.
+
+In this experiment, we will use a local setup for flink cluster by running `./bin/start-local.sh`.
+This script will read the configuration from `./conf/flink-conf.yaml`, which we just modified.
+Then the script will start a job manager along with a task manager on localhost.
+
+You could also change the number of slots in that task manager by modify the `./conf/flink-conf.yaml`,
+but that's not something we needed for the current topic. For now we can just run:
+
+{% highlight bash %}
+./bin/start-local.sh
+{% endhighlight %}
