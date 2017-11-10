@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Create external Hive table in JSON with partitions"
-description: "Is it easy to use and can we count on it?"
+description: "Most common usage in Hive"
 modified: 2017-11-10
 tags: [hive]
 category: Snippets
