@@ -58,7 +58,7 @@ By now, all the preparation is done. The rest of the work is pretty straight for
 So, the HQL to create the external table is something like:
 
 {% highlight sql %}
-create external table traffic_beta6 (
+create external table awesome_data (
 -- <field-list>
 )
 PARTITIONED BY (
@@ -85,11 +85,11 @@ Then soon enough, you will find this external table doesn't seem to contain any 
 That is because we need to manually add partitions into the table.
 
 {% highlight sql %}
-ALTER TABLE traffic_beta6 ADD PARTITION(year='2017', month='11', day='01');
+ALTER TABLE awesome_data ADD PARTITION(year='2017', month='11', day='01');
 {% endhighlight %}
 
 When you finish the ingestion of `/user/coolguy/awesome_data/year=2017/month=11/day=02/`, you should also run
 
 {% highlight sql %}
-ALTER TABLE traffic_beta6 ADD PARTITION(year='2017', month='11', day='02');
+ALTER TABLE awesome_data ADD PARTITION(year='2017', month='11', day='02');
 {% endhighlight %}
