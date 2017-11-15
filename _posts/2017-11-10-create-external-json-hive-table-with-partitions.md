@@ -93,3 +93,21 @@ When you finish the ingestion of `/user/coolguy/awesome_data/year=2017/month=11/
 {% highlight sql %}
 ALTER TABLE awesome_data ADD PARTITION(year='2017', month='11', day='02');
 {% endhighlight %}
+
+
+## Update: For ORC external table
+
+For orc external table it is even simpler.
+You don't need external library for this. Only thing you need to specify the ORC file format is `STORED AS ORC`:
+
+{% highlight sql %}
+create external table table_name (
+... fields ...
+)
+PARTITIONED BY (
+... partition fields ...
+)
+STORED AS ORC
+LOCATION ...
+TBLPROPERTIES ("orc.compress"="SNAPPY");
+{% endhighlight %}
